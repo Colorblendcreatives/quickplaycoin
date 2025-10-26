@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickPlay Coin - Revolutionary Meme Coin</title>
+    <link rel="icon" type="image/x-icon" href="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg">
+<link rel="apple-touch-icon" href="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="QuickPlay Coin ($QP) - A revolutionary meme coin on Pumpfun blockchain. Join our community-driven gaming ecosystem.">
+<meta property="og:title" content="QuickPlay Coin - Community-Driven Gaming">
+<meta property="og:description" content="Revolutionary meme coin on Pumpfun blockchain building the future of gaming.">
+<meta property="og:image" content="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg">
+<meta property="og:url" content="https://quickplaycoin.xyz">
+<meta name="twitter:card" content="summary_large_image">
     <style>
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-       * {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
+html {
+    scroll-behavior: smooth;
+}
         body {
             background: #000000;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
         }
+        
 
         /* Section Backgrounds - Subtle Variations */
         .section-black-1 {
@@ -141,15 +149,55 @@
             }
         }
 
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 140px 20px 80px;
-            position: relative;
-        }
+    
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px;
+    position: relative;
+    background-image: url('hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: heroZoomIn 1.5s ease-out forwards;
+}
+
+@keyframes heroZoomIn {
+    0% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .hero-section::before {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+    }
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
 
         .hero-title {
             font-size: 4.5rem;
@@ -187,6 +235,39 @@
             font-weight: 700;
         }
 
+
+        /* Hero Content Animations */
+.hero-section .hero-title {
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.hero-section .blurred-gold-text {
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.hero-section .hero-description {
+    animation: fadeInUp 1s ease-out 0.7s backwards;
+}
+
+.hero-section .market-label,
+.hero-section .countdown-timer {
+    animation: fadeInUp 1s ease-out 0.9s backwards;
+}
+
+.hero-section .cta-buttons {
+    animation: fadeInUp 1s ease-out 1.1s backwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
         /* Countdown Timer - Fixed for Mobile */
  /* Countdown Timer - Fully Responsive */
         .countdown-timer {
@@ -339,7 +420,7 @@
        .section-title {
             font-size: 2rem;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 2px;
             color: #ffffff;
         }
 
@@ -347,12 +428,12 @@
             color: #D4AF37;
         }
 
-        .what-is-content-wrapper {
-            display: flex;
-            gap: 60px;
-            align-items: flex-start;
-            margin-bottom: 80px;
-        }
+      .what-is-content-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
 
         .what-is-text {
             flex: 1;
@@ -376,16 +457,13 @@
         }
 
         .logo-box {
-            width: 100%;
-            max-width: 450px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(212, 175, 55, 0.03);
-            border-radius: 15px;
-            border: 2px solid rgba(212, 175, 55, 0.2);
-        }
+    width: 250px;
+   
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
         /* Feature Cards - Smaller & All Icons Change on Hover */
         .feature-cards {
@@ -758,6 +836,70 @@
             .official-launch-title { font-size: 2.2rem; }
             .roadmap-title { font-size: 2.2rem; }
         }
+
+
+        /* Scroll Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Floating Particles */
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #D4AF37;
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatParticle 8s infinite;
+    pointer-events: none;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 2.5s; }
     </style>
 </head>
 <body>
@@ -778,7 +920,7 @@
                     <li class="nav-item"><a class="nav-link" href="#plans">Plans</a></li>
                     <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
                     <li class="nav-item ms-lg-3 mt-3 mt-lg-0 w-100">
-                        <a class="btn btn-telegram" href="#">Join Telegram</a>
+                        <a class="btn btn-telegram" href="https://t.co/M2i5LlrMf3">Join Telegram</a>
                     </li>
                 </ul>
             </div>
@@ -787,6 +929,15 @@
 
     <!-- Hero Section -->
     <section class="hero-section section-black-1">
+        <div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
         <div class="container">
             <h1 class="hero-title">Meet QuickPlay Coin</h1>
             <div class="blurred-gold-text">Community-Driven Gaming</div>
@@ -821,14 +972,14 @@
             <div class="live-indicator" id="liveIndicator">🚀 WE ARE LIVE! 🚀</div>
 
             <div class="cta-buttons">
-                <a href="#" class="btn-cta btn-telegram-cta">Join Telegram</a>
-                <a href="#" class="btn-cta btn-twitter">Follow on X</a>
+                <a href="https://t.co/M2i5LlrMf3" class="btn-cta btn-telegram-cta">Join Telegram</a>
+                <a href="https://x.com/QuickPlayCoin" class="btn-cta btn-twitter">Follow on X</a>
             </div>
         </div>
     </section>
 
     <!-- What Is Section -->
-    <section id="about" class="what-is-section section-black-2">
+   <section id="about" class="what-is-section section-black-2 fade-in-section">
         <div class="container">
            <h2 class="section-title">What is <span class="quickplay-coin-gold">QuickPlay Coin</span></h2>
             
@@ -839,15 +990,15 @@
                     </p>
                 </div>
                 <div class="what-is-logo">
-                    <div class="logo-box">
-                        <img src="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg" alt="QuickPlay Logo" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 15px;">
-                    </div>
-                </div>
+    <div class="logo-box">
+        <img src="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg" alt="QuickPlay Logo" style="width: 100%; height: auto; object-fit: contain; border-radius: 20px;">
+    </div>
+</div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <div class="feature-cards">
+                    <div class="feature-cards fade-in-section">
                         <div class="feature-card">
                             <div class="feature-icon">
                                 <i class="fas fa-users"></i>
@@ -856,7 +1007,7 @@
                             <p>Built by the community, for the community</p>
                         </div>
 
-                        <div class="feature-card">
+                        <div class="feature-card fade-in-section">
                             <div class="feature-icon">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
@@ -864,7 +1015,7 @@
                             <p>Open development and clear roadmap</p>
                         </div>
 
-                        <div class="feature-card">
+                        <div class="feature-card fade-in-section">
                             <div class="feature-icon">
                                 <i class="fas fa-bolt"></i>
                             </div>
@@ -878,7 +1029,7 @@
     </section>
 
     <!-- Planning Section -->
-    <section id="plans" class="planning-section section-black-3">
+    <section id="plans" class="planning-section section-black-3 fade-in-section">
         <div class="container">
             <h2 class="official-launch-title">Official Launch</h2>
             
@@ -913,7 +1064,7 @@
            </div>
 
             <div class="planning-cards">
-                <div class="planning-card">
+                <div class="planning-card fade-in-section">
                     <div class="card-header">
                         <div class="card-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -929,7 +1080,7 @@
                     <p>Here, gamers don't just play — they create. Submit your ideas for new or reimagined games, vote on your favorites, and watch the highest-voted projects come to life.</p>
                 </div>
 
-                <div class="planning-card">
+                <div class="planning-card fade-in-section">
                     <div class="card-header">
                         <div class="card-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -950,7 +1101,7 @@
     </section>
 
     <!-- Roadmap Section -->
-    <section id="roadmap" class="roadmap-section section-black-1">
+    <section id="roadmap" class="roadmap-section section-black-1 fade-in-section">
         <div class="container">
             <div class="roadmap-header">
                 <h2 class="roadmap-title">QuickPlay <span class="roadmap-gold">Roadmap</span></h2>
@@ -958,7 +1109,7 @@
             </div>
 
             <div class="roadmap-grid">
-                <div class="roadmap-card">
+                <div class="roadmap-card fade-in-section ">
                     <div class="roadmap-card-header">
                         <h3 class="phase-title">Phase 1: Q4 2024</h3>
                        <span class="phase-badge badge-progress">In Progress</span>
@@ -971,7 +1122,7 @@
                 </div>
 
                 <!-- Phase 2 -->
-                <div class="roadmap-card">
+                <div class="roadmap-card fade-in-section">
                     <div class="roadmap-card-header">
                         <h3 class="phase-title">Phase 2: Q1 2025</h3>
                         <span class="phase-badge badge-soon">Coming Soon</span>
@@ -1013,7 +1164,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer-section">
+    <footer class="footer-section fade-in-section">
         <div class="footer-content">
            <div class="footer-brand">
                 <img src="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg" alt="QuickPlay Logo" style="height: 50px; width: auto;">
@@ -1021,11 +1172,11 @@
             </div>
 
             <div class="footer-social">
-                <a href="#" class="social-btn">
+                <a href="https://t.co/M2i5LlrMf3" class="social-btn">
                     <i class="fab fa-telegram"></i>
                     Join Telegram
                 </a>
-                <a href="#" class="social-btn">
+                <a href="https://x.com/QuickPlayCoin" class="social-btn">
                     <i class="fab fa-twitter"></i>
                     Follow on X
                 </a>
@@ -1035,8 +1186,7 @@
                 <a href="#about">About</a>
                 <a href="#plans">Our Plans</a>
                 <a href="#roadmap">Roadmap</a>
-                <a href="#faq">FAQ</a>
-            </div>
+             </div>
 
             <div class="footer-copyright">
                 © 2025 QuickPlay Coin. All rights reserved.
@@ -1083,6 +1233,47 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+
+        
     </script>
+    <script>
+// Scroll Animation Observer
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+        } else {
+            // Remove class when scrolling away (enables animation on scroll up too)
+            entry.target.classList.remove('is-visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all fade-in elements
+document.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('.fade-in-section, .fade-in-up');
+    fadeElements.forEach(el => observer.observe(el));
+});
+</script>
+
+<script>
+// Scroll to top on page load/refresh
+window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+});
+
+// Also ensure we're at top when page loads
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+</script>
+
 </body>
 </html>
