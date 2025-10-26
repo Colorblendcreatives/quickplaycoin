@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickPlay Coin - Revolutionary Meme Coin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Section Backgrounds - Subtle Variations */
+        .section-black-1 {
+            background: #000000;
+        }
+
+        .section-black-2 {
+            background: #0a0a0a;
+        }
+
+        .section-black-3 {
+            background: #050505;
+        }
+
+        /* Navigation */
+        .navbar-glass {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1.2rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .navbar-brand:hover {
+            color: #D4AF37 !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #D4AF37 !important;
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-telegram:hover {
+            background: #D4AF37;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 20px 80px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-top: 70px;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .blurred-gold-text {
+            color: #D4AF37;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .market-label {
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            color: #D4AF37;
+            font-weight: 700;
+        }
+
+        /* Countdown Timer - Fixed for Mobile */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .timer-block {
+            text-align: center;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            min-width: 100px;
+        }
+
+        .timer-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .timer-separator {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.5);
+        }
+
+        .live-indicator {
+            display: none;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #D4AF37;
+            margin-bottom: 3rem;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 10px;
+            border: 2px solid;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-telegram-cta {
+            background: #D4AF37;
+            color: #000000;
+            border-color: #D4AF37;
+        }
+
+        .btn-telegram-cta:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-3px);
+        }
+
+        .btn-twitter {
+            background: transparent;
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-twitter:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-3px);
+        }
+
+        /* What Is Section */
+        .what-is-section {
+            padding: 100px 20px;
+        }
+
+       .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .quickplay-coin-gold {
+            color: #D4AF37;
+        }
+
+        .what-is-content-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            margin-bottom: 80px;
+        }
+
+        .what-is-text {
+            flex: 1;
+        }
+
+        .what-is-text p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .quickplay-gold {
+            color: #D4AF37;
+            font-weight: 700;
+        }
+
+        .what-is-logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-box {
+            width: 100%;
+            max-width: 450px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.03);
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Feature Cards - Smaller & All Icons Change on Hover */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(10, 10, 10, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 35px 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            border-color: #D4AF37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+.feature-card:hover .feature-icon {
+            color: #D4AF37;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+           
+        }
+
+        .feature-card:hover {
+            background: rgba(212, 175, 55, 0.08);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        /* Planning Section */
+        .planning-section {
+            padding: 100px 20px;
+        }
+
+        .official-launch-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #D4AF37;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+       .planning-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 60px;
+        }
+
+        .what-were-planning-wrapper {
+            margin-top: 100px;
+        }
+        .planning-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .planning-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .planning-card:hover {
+            transform: translateY(-5px);
+            border-color: #D4AF37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .coming-soon-badge {
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .planning-card h3 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .planning-card .tagline {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #D4AF37;
+            margin-bottom: 20px;
+        }
+
+        .planning-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Roadmap Section - 2x2 Grid */
+        .roadmap-section {
+            padding: 100px 20px;
+        }
+
+        .roadmap-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .roadmap-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-gold {
+            color: #D4AF37;
+        }
+
+        .roadmap-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .roadmap-card {
+            background: rgba(10, 10, 10, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-card:hover {
+            border-color: #D4AF37;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .roadmap-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .phase-title {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .phase-badge {
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .badge-progress {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .badge-soon {
+            background: transparent;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+        }
+
+        .badge-upcoming {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .roadmap-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .roadmap-items li {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .roadmap-items li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer-section {
+            background: #050505;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 20px 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .footer-logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-weight: 800;
+        }
+
+        .footer-brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+            color: #D4AF37;
+            transform: translateY(-2px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #D4AF37;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 3rem; }
+            .blurred-gold-text { font-size: 2rem; }
+            .what-is-content-wrapper { flex-direction: column; gap: 40px; }
+            .feature-cards { grid-template-columns: 1fr; }
+            .planning-cards { grid-template-columns: 1fr; }
+            .roadmap-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 120px 15px 60px; }
+            .hero-title { font-size: 2.5rem; }@media (max-width: 768px) {
+            .hero-section { padding: 120px 15px 60px; }
+            .hero-title { font-size: 2.5rem; }
+            .cta-buttons { gap: 1rem; }
+            .btn-cta { padding: 0.9rem 1.8rem; font-size: 1rem; }
+            .blurred-gold-text { font-size: 1.6rem; }
+            .timer-block { padding: 1.2rem 1.5rem; min-width: 80px; }
+            .timer-number { font-size: 2.8rem; }
+            .timer-separator { font-size: 2.5rem; }
+            .countdown-timer { gap: 0.5rem; }
+            .section-title { font-size: 3rem; }
+            .official-launch-title { font-size: 3rem; }
+            .roadmap-title { font-size: 3rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2rem; }
+            .blurred-gold-text { font-size: 1.3rem; }
+            .timer-block { padding: 1rem 1rem; min-width: 70px; }
+            .timer-number { font-size: 2.2rem; }
+            .timer-separator { font-size: 2rem; }
+            .section-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-glass">
+        <div class="container">
+            <a class="navbar-brand" href="#">QuickPlay Coin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span style="color: #fff;">☰</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#launch">Launch</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#plans">Our Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-telegram" href="#">Join Telegram</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section section-black-1">
+        <div class="container">
+            <h1 class="hero-title">Meet QuickPlay Coin</h1>
+            <div class="blurred-gold-text">Community-Driven Gaming</div>
+            <p class="hero-description">
+                QuickPlay Coin ($QP) is a revolutionary meme coin on the Pumpfun blockchain that goes beyond the hype. Join a community-driven ecosystem where gamers unite to shape the future of gaming.
+            </p>
+
+            <div class="market-label" id="countdownLabel">LAUNCH COUNTDOWN</div>
+
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="timer-block">
+                    <div class="timer-number" id="days">00</div>
+                    <div class="timer-label">DAYS</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-block">
+                    <div class="timer-number" id="hours">00</div>
+                    <div class="timer-label">HOURS</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-block">
+                    <div class="timer-number" id="minutes">00</div>
+                    <div class="timer-label">MINUTES</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-block">
+                    <div class="timer-number" id="seconds">00</div>
+                    <div class="timer-label">SECONDS</div>
+                </div>
+            </div>
+
+            <div class="live-indicator" id="liveIndicator">🚀 WE ARE LIVE! 🚀</div>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn-cta btn-telegram-cta">Join Telegram</a>
+                <a href="#" class="btn-cta btn-twitter">Follow on X</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Is Section -->
+    <section id="about" class="what-is-section section-black-2">
+        <div class="container">
+           <h2 class="section-title">What is <span class="quickplay-coin-gold">QuickPlay Coin</span></h2>
+            
+            <div class="what-is-content-wrapper">
+                <div class="what-is-text">
+                    <p>
+                        <strong><span class="quickplay-gold">QuickPlay Coin ($QP)</span></strong> is a meme coin on the Pumpfun blockchain with a focus on community building and longevity. It's not just a crypto meme shot—it's building an ecosystem for gamers who want more than just hype. With planned utilities like crypto freebets, token-earn participations, and the gaming community.
+                    </p>
+                </div>
+                <div class="what-is-logo">
+                    <div class="logo-box">
+                        <img src="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg" alt="QuickPlay Logo" style="display: none;" id="whatIsLogo">
+                        <div style="color: rgba(212,175,55,0.4); font-weight: 600;" id="logoPlaceholder">LOGO</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="feature-cards">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Community-Driven</h3>
+                            <p>Built by the community, for the community</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Transparent</h3>
+                            <p>Open development and clear roadmap</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Future-Focused</h3>
+                            <p>Real utility beyond the meme</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planning Section -->
+    <section id="plans" class="planning-section section-black-3">
+        <div class="container">
+            <h2 class="official-launch-title">Official Launch</h2>
+            
+            <div class="countdown-timer" id="launchCountdown">
+                <div class="timer-block">
+                    <div class="timer-number" id="launch-days">00</div>
+                    <div class="timer-label">DAYS</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-block">
+                    <div class="timer-number" id="launch-hours">00</div>
+                    <div class="timer-label">HOURS</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-block">
+                    <div class="timer-number" id="launch-minutes">00</div>
+                    <div class="timer-label">MINUTES</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-block">
+                    <div class="timer-number" id="launch-seconds">00</div>
+                    <div class="timer-label">SECONDS</div>
+                </div>
+            </div>
+
+            <div class="live-indicator" id="launchLiveIndicator" style="margin-bottom: 60px;">🚀 WE ARE LIVE! 🚀</div>
+
+            <div class="what-were-planning-wrapper">
+                <h2 class="section-title text-center">What We're <span style="color: #D4AF37;">Planning</span></h2>
+            <p class="planning-subtitle">Revolutionizing gaming through community innovation</p>
+
+           </div>
+
+            <div class="planning-cards">
+                <div class="planning-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M2 17L12 22L22 17" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M2 12L12 17L22 12" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="coming-soon-badge">Coming Q2 2025</span>
+                    </div>
+                    <h3>QuickPlay Imaginarium</h3>
+                    <p class="tagline">where creativity replaces corporate control</p>
+                    <p>Here, gamers don't just play — they create. Submit your ideas for new or reimagined games, vote on your favorites, and watch the highest-voted projects come to life.</p>
+                </div>
+
+                <div class="planning-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M8 21H16M12 17V21" stroke="#D4AF37" stroke-width="2"/>
+                                <circle cx="7" cy="9" r="1.5" fill="#D4AF37"/>
+                                <circle cx="12" cy="9" r="1.5" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                        <span class="coming-soon-badge">Coming Q3 2025</span>
+                    </div>
+                    <h3>The QuickPlay Studio</h3>
+                    <p class="tagline">Where imagination becomes reality</p>
+                    <p>Backed by the voice of the community, our studio transforms top-voted ideas from the Imaginarium into playable experiences. Built by players, for players.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section section-black-1">
+        <div class="container">
+            <div class="roadmap-header">
+                <h2 class="roadmap-title">QuickPlay <span class="roadmap-gold">Roadmap</span></h2>
+                <p class="roadmap-subtitle">Our Journey to Revolutionary Gaming</p>
+            </div>
+
+            <div class="roadmap-grid">
+                <div class="roadmap-card">
+                    <div class="roadmap-card-header">
+                        <h3 class="phase-title">Phase 1: Q4 2024</h3>
+                       <span class="phase-badge badge-progress">In Progress</span>
+                    </div>
+                    <ul class="roadmap-items">
+                        <li>Community Growth & Official Launch</li>
+                        <li>Expanding the QuickPlay ecosystem</li>
+                        <li>Building engagement through events and collaborations</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="roadmap-card">
+                    <div class="roadmap-card-header">
+                        <h3 class="phase-title">Phase 2: Q1 2025</h3>
+                        <span class="phase-badge badge-soon">Coming Soon</span>
+                    </div>
+                    <ul class="roadmap-items">
+                        <li>Sustained community growth</li>
+                        <li>Launching QuickPlay on additional platforms</li>
+                        <li>Strengthening partnerships and ecosystem reach</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="roadmap-card">
+                    <div class="roadmap-card-header">
+                        <h3 class="phase-title">Phase 3: Q2 2025</h3>
+                        <span class="phase-badge badge-upcoming">Upcoming</span>
+                    </div>
+                    <ul class="roadmap-items">
+                        <li>Launch of QuickPlay Imaginarium</li>
+                        <li>Creative hub for gamers and developers</li>
+                        <li>Community voting system implementation</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="roadmap-card">
+                    <div class="roadmap-card-header">
+                        <h3 class="phase-title">Phase 4: Q3 2025</h3>
+                        <span class="phase-badge badge-upcoming">Upcoming</span>
+                    </div>
+                    <ul class="roadmap-items">
+                        <li>Launch of QuickPlay Studios</li>
+                        <li>Begin development of top-voted projects</li>
+                        <li>Bringing community imagination to life</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo-placeholder">QP</div>
+                <span class="footer-brand-name">QuickPlay Coin</span>
+            </div>
+
+            <div class="footer-social">
+                <a href="#" class="social-btn">
+                    <i class="fab fa-telegram"></i>
+                    Join Telegram
+                </a>
+                <a href="#" class="social-btn">
+                    <i class="fab fa-twitter"></i>
+                    Follow on X
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#plans">Our Plans</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+            <div class="footer-copyright">
+                © 2025 QuickPlay Coin. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Countdown to Sunday, Nov 2, 2025 10PM UTC
+        const targetDate = new Date('2025-11-02T22:00:00Z').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                // Show "We Are Live"
+                document.getElementById('countdownTimer').style.display = 'none';
+                document.getElementById('liveIndicator').style.display = 'block';
+                document.getElementById('launchCountdown').style.display = 'none';
+                document.getElementById('launchLiveIndicator').style.display = 'block';
+                document.getElementById('countdownLabel').textContent = '';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update hero countdown
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            // Update launch countdown
+            document.getElementById('launch-days').textContent = String(days).padStart(2, '0');
+            document.getElementById('launch-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('launch-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('launch-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
