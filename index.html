@@ -38,25 +38,71 @@
         }
 
         /* Navigation */
+/* Navigation - Enhanced Glassmorphism */
         .navbar-glass {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             padding: 1.2rem 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .navbar-brand {
             color: #ffffff !important;
             font-weight: 700;
             font-size: 1.3rem;
+            display: flex;
+            align-items: center;
         }
 
         .navbar-brand:hover {
             color: #D4AF37 !important;
+        }
+
+        .navbar-collapse {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 15px;
+            margin-top: 15px;
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .navbar-collapse.show,
+        .navbar-collapse.collapsing {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        @media (min-width: 992px) {
+            .navbar-collapse {
+                background: transparent;
+                backdrop-filter: none;
+                border: none;
+                margin-top: 0;
+                padding: 0;
+            }
+        }
+
+        .nav-item {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 8px 0;
+        }
+
+        .nav-item:last-of-type {
+            border-bottom: none;
+        }
+
+        @media (min-width: 992px) {
+            .nav-item {
+                border-bottom: none;
+                padding: 0;
+            }
         }
 
         .nav-link {
@@ -78,12 +124,21 @@
             border-radius: 8px;
             font-weight: 700;
             transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
         }
 
         .btn-telegram:hover {
             background: #D4AF37;
             color: #000000;
             transform: translateY(-2px);
+        }
+
+        @media (max-width: 991px) {
+            .btn-telegram {
+                width: 100%;
+                display: block;
+            }
         }
 
         /* Hero Section */
@@ -133,45 +188,97 @@
         }
 
         /* Countdown Timer - Fixed for Mobile */
+ /* Countdown Timer - Fully Responsive */
         .countdown-timer {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
             margin-bottom: 3rem;
             flex-wrap: nowrap;
-            overflow-x: auto;
+            max-width: 100%;
         }
 
         .timer-block {
             text-align: center;
-            background: rgba(212, 175, 55, 0.05);
-            padding: 1.5rem 1.8rem;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 1rem 0.8rem;
             border-radius: 12px;
             border: 2px solid rgba(212, 175, 55, 0.3);
-            min-width: 100px;
+            flex: 1;
+            max-width: 90px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .timer-block:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            transform: translateY(-3px);
         }
 
         .timer-number {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 900;
             color: #ffffff;
             line-height: 1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
         .timer-label {
-            font-size: 0.75rem;
-            letter-spacing: 2px;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.7);
             font-weight: 600;
             text-transform: uppercase;
         }
 
         .timer-separator {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 900;
             color: rgba(212, 175, 55, 0.5);
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 576px) {
+            .countdown-timer {
+                gap: 1rem;
+            }
+            
+            .timer-block {
+                padding: 1.2rem 1rem;
+                max-width: 100px;
+            }
+            
+            .timer-number {
+                font-size: 3rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .timer-label {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+            }
+            
+            .timer-separator {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .timer-block {
+                padding: 1.5rem 1.5rem;
+                max-width: 110px;
+            }
+            
+            .timer-number {
+                font-size: 3.5rem;
+            }
+            
+            .timer-separator {
+                font-size: 3rem;
+            }
         }
 
         .live-indicator {
@@ -634,18 +741,12 @@
             .roadmap-grid { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 768px) {
-            .hero-section { padding: 120px 15px 60px; }
-            .hero-title { font-size: 2.5rem; }@media (max-width: 768px) {
+       @media (max-width: 768px) {
             .hero-section { padding: 120px 15px 60px; }
             .hero-title { font-size: 2.5rem; }
-            .cta-buttons { gap: 1rem; }
-            .btn-cta { padding: 0.9rem 1.8rem; font-size: 1rem; }
             .blurred-gold-text { font-size: 1.6rem; }
-            .timer-block { padding: 1.2rem 1.5rem; min-width: 80px; }
-            .timer-number { font-size: 2.8rem; }
-            .timer-separator { font-size: 2.5rem; }
-            .countdown-timer { gap: 0.5rem; }
+            .cta-buttons { gap: 1rem; flex-wrap: wrap; }
+            .btn-cta { padding: 0.9rem 1.5rem; font-size: 1rem; flex: 1; min-width: 140px; }
             .section-title { font-size: 3rem; }
             .official-launch-title { font-size: 3rem; }
             .roadmap-title { font-size: 3rem; }
@@ -654,10 +755,9 @@
         @media (max-width: 480px) {
             .hero-title { font-size: 2rem; }
             .blurred-gold-text { font-size: 1.3rem; }
-            .timer-block { padding: 1rem 1rem; min-width: 70px; }
-            .timer-number { font-size: 2.2rem; }
-            .timer-separator { font-size: 2rem; }
             .section-title { font-size: 2.2rem; }
+            .official-launch-title { font-size: 2.2rem; }
+            .roadmap-title { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -665,18 +765,20 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-glass">
         <div class="container">
-            <a class="navbar-brand" href="#">QuickPlay Coin</a>
+            <a class="navbar-brand" href="#">
+                <img src="https://pbs.twimg.com/profile_images/1981293770839666688/1MIqAm9O_400x400.jpg" alt="QuickPlay Coin" style="height: 40px; width: auto; margin-right: 10px;">
+                QuickPlay Coin
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span style="color: #fff;">☰</span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#launch">Launch</a></li>
                     <li class="nav-item"><a class="nav-link" href="#plans">Our Plans</a></li>
                     <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0 w-100">
                         <a class="btn btn-telegram" href="#">Join Telegram</a>
                     </li>
                 </ul>
